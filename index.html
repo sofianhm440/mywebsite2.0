@@ -1,0 +1,99 @@
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href=%PUBLIC_URL%/favicon.ico" />
+	<meta name="viewport" content=width=device-width, initial-scale=1 />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+	<title>WEB PERTAMA</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+	<header class="animate__animated animate__zoomIn"  >
+		<div class="logo animate__animated animate__tada animate__infinite infinite">
+			<img src="assets/icon/pricetag.png" alt="logo" class="logo-img" />
+			<h1 class="logo-title" class="logo">SOFT.CO</SOFT></h1>
+		</div>
+
+		<nav>
+			<ul>
+				<li><a href="#service">SERVICE</a></li>
+				<li><a href="mailto:sofianhm440@gmail.com">COLLAB</a></li>
+			</ul>
+		</nav>
+		<button class="btn-cta" onclick="redirInstagram()">Follow ME</button>
+	</header>
+	<div class="container">
+		<div class="intro">
+			<p class="title animate__animated animate__SlideInLeft">Hello, Sofyan Here!</p>
+			<p class="description animate__animated animate__SlideInRight">I Am Beginner Programmer</p>
+			<img src="assets/foto/foto1.jpeg" alt="sofyan hidayat foto 1" class="img-foto animate__animated animate__fadeInUp " />
+		</div>
+	</div>
+	<div class="parallax">
+		<div class="tentang">
+			<p class="title1 tunggu-scroll" data-animasi="animate__fadeInTopRight">Saya Adalah Programmer Pemula</p>
+			<p class="description tunggu-scroll" data-animasi="animate__fadeInTopLeft">Ini Adalah Website Pertama Buatan Saya</p>
+			<div class="mt-10">
+				<button class="btn-cta tunggu-scroll" data-animasi="animate__flipInX" onclick="redirWhatsapp()">CONTACT PERSON</button>
+			</div>
+		</div>
+		<div class="container2">
+			<div class="card" id="service">
+				<div class="card-item tunggu-scroll" data-animasi="animate__bounceInLeft">
+					<img src="assets/icon/24.hours.png" alt="icon1" class="icon animate__animated animate__headShake animate__infinite infinite" />
+					<p class="card-title">Buka 24 Jam.</p>
+					<p class="card-description">Kami Bersedia Melayani Anda Setiap Waktu.</p>
+				</div>
+				<div class="card-item tunggu-scroll" data-animasi="animate__bounceInUp">
+					<img src="assets/icon/bestprice.png" alt="icon2" class="icon animate__animated animate__headShake animate__infinite infinite" />
+					<p class="card-title">Harga Yang Terjangkau.</p>
+					<p class="card-description">Produk Yang Kami Jual Selalu Memberikan Harga Terbaik.</p>
+				</div>
+				<div class="card-item tunggu-scroll" data-animasi="animate__bounceInRight">
+					<img src="assets/icon/rating.png" alt="icon3" class="icon animate__animated animate__headShake animate__infinite infinite" />
+					<p class="card-title">Rating Terbaik.</p>
+					<p class="card-description">Kami Selalu Memberikan Pelayanan Yang terbaik Sepanjang Masa</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer>
+		<p class="title">Lets Connect and Grow Together🤝, Thank You🙏🏻</p>
+	</footer>
+
+	<script>
+		function redirInstagram() {
+			window.location.href = "https://instagram.com/yaanpian"
+		}
+
+		function redirWhatsapp() {
+			window.location.href = "https://wa.me/+6281289682441"
+		}
+
+		// Membuat pendeteksi scroll (Intersection Observer)
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				// Jika elemen sudah masuk ke area layar
+				if (entry.isIntersecting) {
+					// Mengambil nama animasi otomatis dari HTML masing-masing elemen
+					const jenisAnimasi = entry.target.getAttribute('data-animasi');
+					entry.target.classList.add('animate__animated', jenisAnimasi);
+				}
+			});
+		}, {	
+			threshold: 0.1 // Animasi mulai berjalan saat 10% bagian elemen terlihat di layar
+		});
+
+		// Mencari semua elemen yang memiliki class 'tunggu-scroll'
+		const elemenAnimasi = document.querySelectorAll('.tunggu-scroll');
+
+		// Menyuruh javascript mengawasi semua elemen tersebut saat di scroll
+		elemenAnimasi.forEach((el) => observer.observe(el));
+	</script>
+</body>
+
+</html>
